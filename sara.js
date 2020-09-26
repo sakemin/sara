@@ -27,8 +27,6 @@ function draw(){
     else if(dx<-thresh*width)dx=-thresh*width;
     image(backgroundImage,width/2,height/2,height/ratio,height);
     image(heads,width/2+dx,height/2,height/ratio,height);
-
-    text(rotationY,width/2,height/2);
   }
   else{
     dx = mouseX-width/2;
@@ -38,6 +36,8 @@ function draw(){
     image(backgroundImage,width/2,height/2,height/ratio,height);
     image(heads,width/2+dx,height/2,height/ratio,height);
   }
+
+      text(dx,width/2,height/2);
 }
 
 function isMobile(){
