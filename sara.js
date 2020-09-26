@@ -17,7 +17,7 @@ function setup(){
 
 if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function'){
   //ios 13 device
-  DeviceOrientationEvent.requestPermission();
+  //DeviceOrientationEvent.requestPermission();
   .catch(() => {
     button = createButton("YAS QUEEEN");
     button.style("font-size", "24px");
