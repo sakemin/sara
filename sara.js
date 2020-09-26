@@ -17,7 +17,16 @@ function setup(){
 
 if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function'){
   //ios 13 device
-  requestAccess();
+  DeviceOrientationEvent.requestPermission();
+  .catch(() => {
+    button = createButton("YAS QUEEEN");
+    button.style("font-size", "24px");
+    button.center();
+    button.mousePressed(requestAccess);
+  })
+  .then(() => {
+    permissionGranted=true;
+  })
 }else{
   //non ios13
 }
