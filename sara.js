@@ -6,6 +6,8 @@ var dx;
 var ratio;
 var thresh;
 
+let permissionGranted = false;
+
 function setup(){
   createCanvas(window.innerWidth,window.innerHeight);
   backgroundImage = loadImage("assets/background.png");
@@ -19,7 +21,7 @@ function setup(){
     //ios 13 device
     DeviceOrientationEvent.requestPermission()
       .catch(() => {
-        button = createButton("YAS QUEEEN");
+        let button = createButton("YAS QUEEEN");
         button.style("font-size", "24px");
         button.center();
         button.mousePressed(requestAccess);
@@ -40,8 +42,7 @@ function draw(){
   background(0);
 
   if(isMobile()){
-    if(!permissionGranted) return;
-
+    if (!permissionGranted) return;
     dx = rotationY;
 
     if(dx>thresh*width)dx=thresh*width;
@@ -86,8 +87,11 @@ function requestAccess(){
     if(response == 'granted'){
       permissionGranted = true;
     }
+    else{
+      permissionGranted = false;
+    }
   })
   .catch(console.error);
 
-  button.remove();
+  this.remove();
 }
