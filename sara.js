@@ -14,6 +14,18 @@ function setup(){
   angleMode(DEGREES);
   ratio = 4/3;
   thresh=0.017;
+
+if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function'){
+  //ios 13 device
+  button = createButton("YAS QUEEEN");
+  button.style("font-size", "24px");
+  button.center();
+  button.mousePressed(requestAccess);
+}else{
+  //non ios13
+}
+
+
 }
 
 
@@ -21,6 +33,8 @@ function draw(){
   background(0);
 
   if(isMobile()){
+    if(!permissionGranted) return;
+
     dx = rotationY;
 
     if(dx>thresh*width)dx=thresh*width;
@@ -57,4 +71,14 @@ function isMobile(){
 
 	}
 
+}
+
+function requestAccess(){
+  DeviceOrientationEvent.requestPermission()
+  .then(response => {
+    if(response == 'granted'){
+      permissionGranted = true;
+    }
+  })
+  .catch(console.error);
 }
