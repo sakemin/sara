@@ -17,23 +17,23 @@ function setup(){
   ratio = 4/3;
   thresh=0.017;
 
-  if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function'){
-    //ios 13 device
-    DeviceOrientationEvent.requestPermission()
-      .catch(() => {
-        let button = createButton("YAS QUEEEN");
-        button.style("font-size", "24px");
-        button.center();
-        button.mousePressed(requestAccess);
-        throw error;
-      })
-      .then(() => {
-        permissionGranted=true;
-      })
-  }else{
-    //non ios13
-    permissionGranted=true;
-  }
+  // if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function'){
+  //   //ios 13 device
+  //   DeviceOrientationEvent.requestPermission()
+  //     .catch(() => {
+  //       let button = createButton("YAS QUEEEN");
+  //       button.style("font-size", "24px");
+  //       button.center();
+  //       button.mousePressed(requestAccess);
+  //       throw error;
+  //     })
+  //     .then(() => {
+  //       permissionGranted=true;
+  //     })
+  // }else{
+  //   //non ios13
+  //   permissionGranted=true;
+  // }
 
 
 }
