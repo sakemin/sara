@@ -81,4 +81,6 @@ function requestAccess(){
     }
   })
   .catch(console.error);
+
+  button.remove();
 }
