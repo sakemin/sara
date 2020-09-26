@@ -80,22 +80,22 @@ function draw(){
   background(0);
 
   // if(isMobile()){
-    if (!permissionGranted) return;
-    dx = rotationY;
+    // if (!permissionGranted) return;
+    // dx = rotationY;
+    //
+    // if(dx>thresh*width)dx=thresh*width;
+    // else if(dx<-thresh*width)dx=-thresh*width;
+    // image(backgroundImage,width/2,height/2,height/ratio,height);
+    // image(heads,width/2+dx,height/2,height/ratio,height);
+  // }
+  // else{
+    dx = mouseX-width/2;
 
     if(dx>thresh*width)dx=thresh*width;
     else if(dx<-thresh*width)dx=-thresh*width;
     image(backgroundImage,width/2,height/2,height/ratio,height);
     image(heads,width/2+dx,height/2,height/ratio,height);
   // }
-  // else{
-  //   dx = mouseX-width/2;
-  //
-  //   if(dx>thresh*width)dx=thresh*width;
-  //   else if(dx<-thresh*width)dx=-thresh*width;
-  //   image(backgroundImage,width/2,height/2,height/ratio,height);
-  //   image(heads,width/2+dx,height/2,height/ratio,height);
-  // }
 
-  text(rotationY,width/2,height/2);
+
 }
