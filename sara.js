@@ -97,4 +97,5 @@ function draw(){
     image(heads,width/2+dx,height/2,height/ratio,height);
   }
 
+  text(rotationY,width/2,height/2);
 }
