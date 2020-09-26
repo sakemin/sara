@@ -12,7 +12,7 @@ function setup(){
   heads = loadImage("assets/heads.png");
   imageMode(CENTER);
 
-  ratio = 4032/3024;
+  ratio = 4/3;
   thresh=0.017;
 }
 
