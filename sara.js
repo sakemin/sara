@@ -11,7 +11,7 @@ function setup(){
   backgroundImage = loadImage("assets/background.png");
   heads = loadImage("assets/heads.png");
   imageMode(CENTER);
-
+  angleMode(DEGREES);
   ratio = 4/3;
   thresh=0.017;
 }
