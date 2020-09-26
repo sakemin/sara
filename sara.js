@@ -29,6 +29,7 @@ if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEv
   })
 }else{
   //non ios13
+  permissionGranted=true;
 }
 
 
