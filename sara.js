@@ -4,6 +4,7 @@ var heads;
 var dx;
 
 var ratio;
+var thresh;
 
 function setup(){
   createCanvas(window.innerWidth,window.innerHeight);
@@ -11,7 +12,8 @@ function setup(){
   heads = loadImage("assets/heads.png");
   imageMode(CENTER);
 
-  ratio = 2047/1535;
+  ratio = 4032/3024;
+  thresh=0.017;
 }
 
 
@@ -21,18 +23,18 @@ function draw(){
   if(isMobile()){
     dx = rotationY;
 
-    if(dx>0.034*width)dx=0.034*width;
-    else if(dx<-0.034*width)dx=-0.034*width;
-    image(backgroundImage,width/2,height/2,width,width/ratio);
-    image(heads,width/2+dx,height/2,width,width/ratio);
+    if(dx>thresh*width)dx=thresh*width;
+    else if(dx<-thresh*width)dx=-thresh*width;
+    image(backgroundImage,width/2,height/2,height/ratio,height);
+    image(heads,width/2+dx,height/2,height/ratio,height);
   }
   else{
     dx = mouseX-width/2;
 
-    if(dx>0.034*width)dx=0.034*width;
-    else if(dx<-0.034*width)dx=-0.034*width;
-    image(backgroundImage,width/2,height/2,width,width/ratio);
-    image(heads,width/2+dx,height/2,width,width/ratio);
+    if(dx>thresh*width)dx=thresh*width;
+    else if(dx<-thresh*width)dx=-thresh*width;
+    image(backgroundImage,width/2,height/2,height/ratio,height);
+    image(heads,width/2+dx,height/2,height/ratio,height);
   }
 
 }
